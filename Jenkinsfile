@@ -1,5 +1,5 @@
 pipeline {
-    agent { label "{$LABEL_NAME}" }
+    agent { label "${LABEL_NAME}" }
     stages {
         stage('CODE') {
             steps {
