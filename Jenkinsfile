@@ -27,11 +27,21 @@ pipeline {
         }
     }
     post {
-        emailext { 
+        success {
+        emailext( 
+            body: '''THIS MAIL IS REGARDING THE SUCCESSFULL BUILD.
+FOR THE REFERENCE CHECK CONSOLE OUTPUT OF ${BUILD_NUMBER}''', 
+    subject: 'Build SUCCESSFULL ${BUILD_NUMBER}', 
+    to: 'shikoh.zaidi@gmail.com'
+                 )
+        }
+        failure {
+            emailext( 
             body: '''THIS MAIL IS REGARDING THE FAILED BUILD.
 FOR THE REFERENCE CHECK CONSOLE OUTPUT OF ${BUILD_NUMBER}''', 
     subject: 'Build FAILED ${BUILD_NUMBER}', 
     to: 'shikoh.zaidi@gmail.com'
-                 }
+                 )
+        }
             }
 }
