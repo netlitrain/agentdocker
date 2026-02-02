@@ -21,7 +21,7 @@ pipeline {
                 sh """
                     docker stop c1 || true
                     docker rm c1 || true
-                    docker run -d --name c1 -p 80:80 ${DOCKER_IMAGE} --restart always
+                    docker run -d --name c1 -p 80:80 --restart always ${DOCKER_IMAGE}
                 """
             }
         }
