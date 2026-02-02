@@ -26,4 +26,12 @@ pipeline {
             }
         }
     }
+    post {
+        emailext { 
+            body: '''THIS MAIL IS REGARDING THE FAILED BUILD.
+FOR THE REFERENCE CHECK CONSOLE OUTPUT OF ${BUILD_NUMBER}''', 
+    subject: 'Build FAILED ${BUILD_NUMBER}', 
+    to: 'shikoh.zaidi@gmail.com'
+                 }
+            }
 }
