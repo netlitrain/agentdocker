@@ -28,6 +28,8 @@ pipeline {
     }
     post {
         success {
+        archiveArtifacts artifacts: '*.tar'
+            
         emailext( 
             body: '''THIS MAIL IS REGARDING THE SUCCESSFULL BUILD.
 FOR THE REFERENCE CHECK CONSOLE OUTPUT OF ${BUILD_NUMBER}''', 
