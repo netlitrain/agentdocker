@@ -28,7 +28,7 @@ pipeline {
     }
     post {
         success {
-        archiveArtifacts artifacts: '*.tar'
+        archiveArtifacts artifacts: '*.tar', fingerprint: 'true'
             
         emailext( 
             body: '''THIS MAIL IS REGARDING THE SUCCESSFULL BUILD.
